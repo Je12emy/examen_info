@@ -44,8 +44,10 @@ int main() {
           cout << "Calculando números pares antes de " << numero << endl;
           // Variable acumuladora para la suma
           int suma = 0;
-          // Variable acumuladora para la cantidad de numeros
+          // Variables acumuladora para la cantidad de numeros
           int cantidad_pares = 0;
+          int cantidad_divisibles_3 = 0;
+          string divibles_entre_3 = "";
 
           // Imprimir todos los numeros pares antes de 'numero'
           // Ciclo 'for' for 'numero' como máximo
@@ -60,6 +62,11 @@ int main() {
               cantidad_pares = cantidad_pares + 1;
               // Sumar el numero a la variable acumuladora 'suma'
               suma = i + suma;
+              
+              // Evaluar si este número par es dividible entre 3
+              if (i % 3 == 0) {
+                cantidad_divisibles_3 = cantidad_divisibles_3 + 1;
+              }
             }
           }
           cout << endl;
@@ -68,6 +75,8 @@ int main() {
           cout << "- Suma de los números pares: " << suma << endl;
           cout << "- Cantidad de numeros " << cantidad_pares << endl;
           cout << "- Media: " << suma / cantidad_pares << endl;
+          cout << "- Cantidad pares divisibles entre 3: " << cantidad_divisibles_3 << endl;
+          correrProgramaA = false;
         }
       } while (correrProgramaA);
     }
