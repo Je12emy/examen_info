@@ -14,7 +14,7 @@ int main() {
     // Imprimir ejercicios
     cout << "Programas Disponibles:" << endl;
     cout << "A. Contador de pares." << endl;
-    cout << "B. Programa B." << endl;
+    cout << "B. Juego de mátematicas." << endl;
     cout << "C. Salir." << endl;
 
     // Leer ejercicio por ejecutar
@@ -62,7 +62,7 @@ int main() {
               cantidad_pares = cantidad_pares + 1;
               // Sumar el numero a la variable acumuladora 'suma'
               suma = i + suma;
-              
+
               // Evaluar si este número par es dividible entre 3
               if (i % 3 == 0) {
                 cantidad_divisibles_3 = cantidad_divisibles_3 + 1;
@@ -75,19 +75,101 @@ int main() {
           cout << "- Suma de los números pares: " << suma << endl;
           cout << "- Cantidad de numeros " << cantidad_pares << endl;
           cout << "- Media: " << suma / cantidad_pares << endl;
-          cout << "- Cantidad pares divisibles entre 3: " << cantidad_divisibles_3 << endl;
+          cout << "- Cantidad pares divisibles entre 3: "
+               << cantidad_divisibles_3 << endl;
           correrProgramaA = false;
         }
       } while (correrProgramaA);
+      break;
     }
     case 'B': {
-      cout << "Programa B";
+      bool correrProgramaB = true;
+      do {
+        cout << "Juego de Mátematicas" << endl;
+        int numero1, numero2;
+
+        // Capturar numeros ingresados por el usuario
+        cout << "Ingrese un numero [Menor a 100]: ";
+        cin >> numero1;
+
+        cout << "Ingrese un segundo numero [Menor a 100]: ";
+        cin >> numero2;
+
+        //  Evaluar que ambos sean menores a 200
+        if (numero1 > 100 || numero2 > 100) {
+          cout << "¡Debe de ingrear valores menores a 100!" << endl;
+        } else {
+          int multiplicacion, suma, resultado_multiplicacion, resultado_suma;
+          float division, resultado_division;
+
+          cout << "Adivine los resultados..." << endl;
+          // Capturar los resultados estimados por el usuario
+          cout << "- Adivine el resultado de la suma entre:" << numero1 << " y " << numero2 << ": ";
+          cin >> suma;
+
+          cout << "- Adivine el resultado de la multiplicación entre:" << numero1 << " y " << numero2 << ": ";
+          cin >> multiplicacion;
+
+          cout << "- Adivine el resultado de la división entre:" << numero1 << " y " << numero2 << ": ";
+          cin >> division;
+
+          // Calcular resultados reales
+          resultado_multiplicacion = numero1 * numero2;
+          resultado_suma = numero1 + numero2;
+          resultado_division = float(numero1) / float(numero2);
+          
+          // Mostrar resultados
+          cout << "Calculando resultados..." << endl;
+          cout << "- Resultado de la multiplicación: " << resultado_multiplicacion << endl;
+          // Comparara resultados de la multiplicación
+          if (multiplicacion == resultado_multiplicacion) {
+            cout << "~ Su estimación fue correcta" << endl;
+          } else {
+            cout << "~ Su estimación fue incorrecta" << endl;
+          }
+
+          cout << "- Resultado de la suma: " << resultado_suma << endl;
+          // Comparara resultados de la suma
+          if (suma == resultado_suma) {
+            cout << "~ Su estimación fue correcta" << endl;
+          } else {
+            cout << "~ Su estimación fue incorrecta" << endl;
+          }
+
+          cout << "- Resultado de la division: " << resultado_division << endl;
+          // Comparara resultados de la devision
+          if (division == resultado_division) {
+            cout << "~ Su estimación fue correcta" << endl;
+          } else {
+            cout << "~ Su estimación fue incorrecta" << endl;
+          }
+          correrProgramaB = false;
+        }
+      } while (correrProgramaB);
+      break;
     }
     case 'C': {
-      cout << "Salir";
+      char salir;
+      cout << "¿Desea salir del programa?[s/n]: ";
+      cin >> salir;
+
+      switch (salir) {
+        case 's': {
+          cout << "Cerrando programa...." << endl;
+          run = false;
+          break;
+        }
+        case 'n': {
+          break;
+        }
+        default: {
+          cout << "Esa no es una opción!" << endl;
+        }
+      }
+      break;
     }
     default: {
-      cout << "Programa de Error";
+      cout << "Esa no es una opción valida!";
       break;
     }
     }
