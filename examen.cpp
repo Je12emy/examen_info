@@ -10,6 +10,8 @@ int main() {
     // Imprimir información básica
     cout << "Informática I - INDU-120" << endl;
     cout << "Examen Final" << endl;
+    cout << "- # de cédula: 118330002" << endl;
+    cout << "- Nombre completo: Valeria Rodríguez" << endl;
 
     // Imprimir ejercicios
     cout << "Programas Disponibles:" << endl;
@@ -47,7 +49,7 @@ int main() {
           // Variables acumuladora para la cantidad de numeros
           int cantidad_pares = 0;
           int cantidad_divisibles_3 = 0;
-          string divibles_entre_3 = "";
+          string divisibles_entre_3 = "";
 
           // Imprimir todos los numeros pares antes de 'numero'
           // Ciclo 'for' for 'numero' como máximo
@@ -66,6 +68,8 @@ int main() {
               // Evaluar si este número par es dividible entre 3
               if (i % 3 == 0) {
                 cantidad_divisibles_3 = cantidad_divisibles_3 + 1;
+                // Agregarle a la cadena de texto, el numero par actual convertido a texto
+                divisibles_entre_3 = divisibles_entre_3 + " " + to_string(i);
               }
             }
           }
@@ -77,7 +81,10 @@ int main() {
           cout << "- Media: " << suma / cantidad_pares << endl;
           cout << "- Cantidad pares divisibles entre 3: "
                << cantidad_divisibles_3 << endl;
+          cout << "- Numeros pares divibles entre 3: " << divisibles_entre_3;
           correrProgramaA = false;
+
+          cout << endl;
         }
       } while (correrProgramaA);
       break;
@@ -169,7 +176,7 @@ int main() {
       break;
     }
     default: {
-      cout << "Esa no es una opción valida!";
+      cout << "Esa no es una opción valida!" << endl;
       break;
     }
     }
